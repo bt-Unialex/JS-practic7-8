@@ -113,15 +113,43 @@
 // якщо ділиться  без остачі на 5 - виводить в консоль 'buzz',
 // якщо ділиться  без остачі і на 3, і на 5 - виводить в консоль 'fizzbuzz'.
 
-function fizzBuzz(num) {
-  for (let i = 1; i <= num; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log(i, "fizzbuzz");
-    } else if (i % 3 === 0) {
-      console.log(i, "fizz");
-    } else if (i % 5 === 0) {
-      console.log(i, "buzz");
-    }
-  }
+// function fizzBuzz(num) {
+//   for (let i = 1; i <= num; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       console.log(i, "fizzbuzz");
+//     } else if (i % 3 === 0) {
+//       console.log(i, "fizz");
+//     } else if (i % 5 === 0) {
+//       console.log(i, "buzz");
+//     }
+//   }
+// }
+// fizzBuzz(15);
+
+
+// Напишіть функцію isAdult(age), яка  приймає число - вік користувача і повертає true, 
+// якщо параметр age більше чи дорівнює 18.
+// В іншому випадку вона запитує підтвердження через confirm 
+// і повертає його результат (true/false).
+
+
+// function isAdult(age) {
+  // if (age >= 18) {
+  //   return true;
+  // }
+  // return confirm("Чи є вам 18 років?");
+//     return age >= 18 || confirm("Чи є вам 18 років?");
+// }
+//   console.log(isAdult(17));
+
+
+
+
+// task 7;
+// Використайте цикл while, щоб вивести в console всі числа від 0 до 20 включно.
+
+let num = 0;
+while (num <= 10 ) {
+  console.log(num);
+  num +=1;
 }
-fizzBuzz(15);
