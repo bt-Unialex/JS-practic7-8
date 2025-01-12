@@ -71,7 +71,7 @@
 //     default:
 //      return "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
 //   }
-// } 
+// }
 //     console.log(checkNum(1));
 
 //3. Напишіть цикл, який виводить в консоль
@@ -93,17 +93,35 @@
 
 // console.log(`Сума парних чисел: ${sum}`);
 
-function getNumbers(min, max) {
-  let sum = 0;
+// function getNumbers(min, max) {
+//   let sum = 0;
 
-  for (let i = max; i >= min; i--) {
-  console.log(i);
+//   for (let i = max; i >= min; i--) {
+//   console.log(i);
 
-  if (i % 2 === 0) {
-    sum += i;
+//   if (i % 2 === 0) {
+//     sum += i;
+//   }
+//   }
+//   return sum;
+// }
+
+// console.log(getNumbers(6, 12));
+
+// Напишіть функцію fizzBuzz(num), яка приймає число і перевіряє кожне число від 1 до num:
+// Якщо число ділитися  без остачі на 3 - виводить в консоль 'fizz',
+// якщо ділиться  без остачі на 5 - виводить в консоль 'buzz',
+// якщо ділиться  без остачі і на 3, і на 5 - виводить в консоль 'fizzbuzz'.
+
+function fizzBuzz(num) {
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(i, "fizzbuzz");
+    } else if (i % 3 === 0) {
+      console.log(i, "fizz");
+    } else if (i % 5 === 0) {
+      console.log(i, "buzz");
+    }
   }
-  }
-  return sum;
 }
-
-console.log(getNumbers(6, 12));
+fizzBuzz(15);
