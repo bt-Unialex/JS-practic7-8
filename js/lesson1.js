@@ -58,19 +58,52 @@
 // }
 //     console.log (result);
 
-function checkNum(num) {
-  switch (num) {
-    case 1:
-     return  "зима";
-    case 2:
-     return  "весна";
-    case 3:
-     return  "літо";
-    case 4:
-     return  "осінь";
-    default:
-     return "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
-  }
-} 
-    console.log(checkNum(1));
+// function checkNum(num) {
+//   switch (num) {
+//     case 1:
+//      return  "зима";
+//     case 2:
+//      return  "весна";
+//     case 3:
+//      return  "літо";
+//     case 4:
+//      return  "осінь";
+//     default:
+//      return "Вибачте, але ви маєте ввести значення від 1 до 4 включно";
+//   }
+// } 
+//     console.log(checkNum(1));
 
+//3. Напишіть цикл, який виводить в консоль
+//числа от max до min по зменьшенню
+//Виведіть в консоль суму усіх парних чисел
+// * перепиши код на функцію getNumbers(min, max)
+
+// const min = 6;
+// const max = 12;
+// let sum = 0;
+
+// for (let i = max; i >= min; i--) {
+//   console.log(i);
+
+//   if (i % 2 === 0) {
+//     sum += i;
+//   }
+// }
+
+// console.log(`Сума парних чисел: ${sum}`);
+
+function getNumbers(min, max) {
+  let sum = 0;
+
+  for (let i = max; i >= min; i--) {
+  console.log(i);
+
+  if (i % 2 === 0) {
+    sum += i;
+  }
+  }
+  return sum;
+}
+
+console.log(getNumbers(6, 12));
