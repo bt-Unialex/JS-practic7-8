@@ -100,14 +100,56 @@
 // збережіть його результат в змінній sum.
 // Якщо об'єкт salaries пустий, то результат має бути 0
 
-const salaries = {
-  Mango: 100,
-  Poly: 160,
-  Ajax: 1470,
-};
-let sum = 0;
-const totalSalaries = Object.values(salaries);
-for (const totalSalarie of totalSalaries) {
-  sum += totalSalarie;
+// const salaries = {
+//   Mango: 100,
+//   Poly: 160,
+//   Ajax: 1470,
+// };
+// let sum = 0;
+// const totalSalaries = Object.values(salaries);
+// for (const totalSalarie of totalSalaries) {
+//   sum += totalSalarie;
+// }
+// console.log(sum);
+
+// 9. Створіть об'єкт calculator з наступними методами:
+// read(a, b) - приймає два аргумента і зберігає їх
+// як властивості об'єкта
+// sum() повертає сумму збереженних значень (з перевіркою на наявність властивостей в об'єкті)
+// mult() перемножає збереженні значення і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+// raise() возводить першу властивсть в ступінь другої і повертає результат (з перевіркою на наявність властивостей в об'єкті)
+// * винеси перевірку на наявність властивостей в об'єкті в окремий метод exist ()
+
+const calculator = {
+  read(a, b) {
+    this.a = a;
+    this.b = b;
+  },
+  
+  sum() {
+    if (this.exist()) {
+      return this.a + this.b;
+    } return `Not values`;
+  },
+
+  mult() {
+    if (this.exist()) {
+      return this.a * this.b;
+    } return `Not values`;
+  },
+
+  raise() {
+    if (this.exist()) {
+      return this.a ** this.b;
+    } return `Not values`;
+  },
+
+  exist() {
+    return this.a && this.b;
+  }
 }
-console.log(sum);
+
+// calculator.read(2, 6);
+console.log(calculator.sum());
+console.log(calculator.mult());
+console.log(calculator.raise());
