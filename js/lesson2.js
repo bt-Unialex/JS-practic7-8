@@ -22,15 +22,32 @@
 // якщо є - виводить повідомлення в alert "Welcome, <name>!"
 // в іншому випадку - "User not found"
 
-const logins = ["Peter", "John", "Igor", "Sasha"];
+// const logins = ["Peter", "John", "Igor", "Sasha"];
 
-function checkLogin(array) {
-  const name = prompt("Введіть ваше імʼя: ").trim();
-  if (array.includes(name)) {
-    alert(`Welcome, ${name}!`);
-  } else {
-    alert(`User not found`);
+// function checkLogin(array) {
+//   const name = prompt("Введіть ваше імʼя: ").trim();
+//   if (array.includes(name)) {
+//     alert(`Welcome, ${name}!`);
+//   } else {
+//     alert(`User not found`);
+//   }
+// }
+
+// checkLogin(logins);
+
+
+// 3. Напишіть функцію, яка складатиме сусідні числа і пушитиме їх в новий масив
+const someArr = [22, 11, 34, 5, 12, 13, 14, 15];
+
+function sum (array) {
+  const newArray = [];
+
+  for (let i = 0; i < array.length-1; i++) {
+
+    const current = array[i];
+    const next = array[i+1];
+    newArray.push(current + next);
   }
-}
-
-checkLogin(logins);
+  return newArray;
+}  
+  console.log(sum(someArr));
