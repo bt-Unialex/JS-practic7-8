@@ -145,21 +145,85 @@ console.log("getSortedUniqueTags:", getSortedUniqueTags(tweets));
 // get getClientData() має повертати об'єкт з переліченими властивостями
 // set changeEmail(newEmail) перезаписує пошту користувача
 
-class Client {
-    #login;
-    #email;
-    constructor(login, email) {
-        this.#login = login;
-        this.#email = email;
-    }
-    get getClientData() {
-        return { login: this.#login, email: this.#email };
-    }
-    set changeEmail(newEmail) {
-        this.#email = newEmail;
-    }
-}
+// class Client {
+//     #login;
+//     #email;
+//     constructor(login, email) {
+//         this.#login = login;
+//         this.#email = email;
+//     }
+//     get getClientData() {
+//         return { login: this.#login, email: this.#email };
+//     }
+//     set changeEmail(newEmail) {
+//         this.#email = newEmail;
+//     }
+// }
 
-const client = new Client("Valera", "valera@gmail.com");
-client.changeEmail = "valera21@gmail.com";
-console.log(client.getClientData);
+// const client = new Client("Valera", "valera@gmail.com");
+// client.changeEmail = "valera21@gmail.com";
+// console.log(client.getClientData);
+
+
+
+// 3. Напиши класс Notes який управляє коллекцієй нотаток у
+// властивості items.
+// Нотатка це  об'єкт з властивостями text, priority
+// Додай класу статичну властивість Priority,
+// в якій буде зберігатись об'єкт з пріорітетами ("high", "middle", "low").
+// Додай методи getNotes(), addNote(note), removeNote(noteText)
+// updatePriority(noteText, newPriority)
+
+class Notes {
+
+  static Priority = {
+    HIGH: "high",
+    MIDDLE: "middle",
+    LOW: "low",
+  };
+
+  constructor () {
+    this.items = [];
+  }
+
+  getNotes() {
+    return this.items;
+  }
+
+  addNote(note) {
+    this.items.push(note);
+  }
+
+  removeNote(noteText) {
+  //   this.items = this.items.filter(item => item.text !== noteText);
+  const index = this.items.findIndex(item => item.text === noteText);
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    }
+  }
+
+  updatePriority(noteText, newPriority) {
+    const note = this.items.find(item => item.text === noteText);
+    if (note) {
+      note.priority = newPriority;
+    }
+  }
+}
+  const notes = new Notes ();
+  notes.addNote({
+    text: "ololol",
+    priority: Notes.Priority.HIGH 
+  });
+
+  notes.addNote({
+    text: "redystady",
+    priority: Notes.Priority.LOW 
+  });
+
+  notes.addNote({
+    text: "finish",
+    priority: Notes.Priority.MIDDLE 
+  })
+  notes.updatePriority("redystady", Notes.Priority.HIGH);
+  notes.removeNote("finish");
+  console.log(notes.getNotes());
