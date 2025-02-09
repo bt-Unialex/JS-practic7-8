@@ -114,26 +114,52 @@ console.log("getSortedUniqueTags:", getSortedUniqueTags(tweets));
 // Додай метод updateNumberOfPosts(amount), який оновлює кількість постів юзера
 // де amount - це число, кількість постів, що має додаватись до вже існуючих у властивості numbersOfPost
 
-class User {
-  constructor(params) {
-    this.userName = params.userName;
-    this.age = params.age;
-    this.numberOfPosts = params.numberOfPosts;
-  }
-  getInfo() {
-    return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numberOfPosts} публікацій.`;
-  }
-  updateNumberOfPosts(amount) {
-    this.numberOfPosts += amount;
-  }
+// class User {
+//   constructor(params) {
+//     this.userName = params.userName;
+//     this.age = params.age;
+//     this.numberOfPosts = params.numberOfPosts;
+//   }
+//   getInfo() {
+//     return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numberOfPosts} публікацій.`;
+//   }
+//   updateNumberOfPosts(amount) {
+//     this.numberOfPosts += amount;
+//   }
+// }
+
+// const user = new User({
+//   userName: "Mango",
+//   age: 25,
+//   numberOfPosts: 30,
+// });
+
+// console.log(user);
+// user.updateNumberOfPosts(5);
+// console.log(user.getInfo());
+
+// 2. Напиши класс Client який створює об'єкт
+// із властивостями login, email
+// Об'яви приватні властивості #login і #email,
+// доступ до яких зроби через геттер и сеттер:
+// get getClientData() має повертати об'єкт з переліченими властивостями
+// set changeEmail(newEmail) перезаписує пошту користувача
+
+class Client {
+    #login;
+    #email;
+    constructor(login, email) {
+        this.#login = login;
+        this.#email = email;
+    }
+    get getClientData() {
+        return { login: this.#login, email: this.#email };
+    }
+    set changeEmail(newEmail) {
+        this.#email = newEmail;
+    }
 }
 
-const user = new User({
-  userName: "Mango",
-  age: 25,
-  numberOfPosts: 30,
-});
-
-console.log(user);
-user.updateNumberOfPosts(5);
-console.log(user.getInfo());
+const client = new Client("Valera", "valera@gmail.com");
+client.changeEmail = "valera21@gmail.com";
+console.log(client.getClientData);
