@@ -55,12 +55,20 @@ const tweets = [
 // }
 // console.log(getNames(tweets));
 
-function getRandomValues(array, prop) {
-    if (!array[0][prop]) {
-        return "Sory, no such property in array!";
-    }
-    return array.map(tweet => tweet[prop]);
+// function getRandomValues(array, prop) {
+//     if (!array[0][prop]) {
+//         return "Sory, no such property in array!";
+//     }
+//     return array.map(tweet => tweet[prop]);
+// }
+
+
+
+
+// 2. Напишіть функцію getUsersWithJs(array), яка приймає масив об'єктів і повертає масив тільки тих користувачів,
+// у кого є тег "js" (властивість tags)
+
+function getUsersWithJs(array) {
+  return array.filter(twit => twit.tags.includes("js"));
 }
-console.log(getRandomValues(tweets, "name"));
-
-
+console.log(getUsersWithJs(tweets));
