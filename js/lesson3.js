@@ -164,8 +164,6 @@ console.log("getSortedUniqueTags:", getSortedUniqueTags(tweets));
 // client.changeEmail = "valera21@gmail.com";
 // console.log(client.getClientData);
 
-
-
 // 3. Напиши класс Notes який управляє коллекцієй нотаток у
 // властивості items.
 // Нотатка це  об'єкт з властивостями text, priority
@@ -175,14 +173,13 @@ console.log("getSortedUniqueTags:", getSortedUniqueTags(tweets));
 // updatePriority(noteText, newPriority)
 
 class Notes {
-
   static Priority = {
     HIGH: "high",
     MIDDLE: "middle",
     LOW: "low",
   };
 
-  constructor () {
+  constructor() {
     this.items = [];
   }
 
@@ -195,35 +192,35 @@ class Notes {
   }
 
   removeNote(noteText) {
-  //   this.items = this.items.filter(item => item.text !== noteText);
-  const index = this.items.findIndex(item => item.text === noteText);
+    //   this.items = this.items.filter(item => item.text !== noteText);
+    const index = this.items.findIndex((item) => item.text === noteText);
     if (index !== -1) {
       this.items.splice(index, 1);
     }
   }
 
   updatePriority(noteText, newPriority) {
-    const note = this.items.find(item => item.text === noteText);
+    const note = this.items.find((item) => item.text === noteText);
     if (note) {
       note.priority = newPriority;
     }
   }
 }
-  const notes = new Notes ();
-  notes.addNote({
-    text: "ololol",
-    priority: Notes.Priority.HIGH 
-  });
+const notes = new Notes();
+notes.addNote({
+  text: "ololol",
+  priority: Notes.Priority.HIGH,
+});
 
-  notes.addNote({
-    text: "redystady",
-    priority: Notes.Priority.LOW 
-  });
+notes.addNote({
+  text: "redystady",
+  priority: Notes.Priority.LOW,
+});
 
-  notes.addNote({
-    text: "finish",
-    priority: Notes.Priority.MIDDLE 
-  })
-  notes.updatePriority("redystady", Notes.Priority.HIGH);
-  notes.removeNote("finish");
-  console.log(notes.getNotes());
+notes.addNote({
+  text: "finish",
+  priority: Notes.Priority.MIDDLE,
+});
+notes.updatePriority("redystady", Notes.Priority.HIGH);
+notes.removeNote("finish");
+console.log(notes.getNotes());

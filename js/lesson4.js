@@ -144,15 +144,41 @@
 // "Розкрити", при повторному натисканні текст знову стає доступним
 // і кнопка набуває початкового вигляду.
 
-const passwordInput = document.getElementById("passwordInput");
-const passwordButton = document.getElementById("passwordButton");
+// const passwordInput = document.getElementById("passwordInput");
+// const passwordButton = document.getElementById("passwordButton");
 
-passwordButton.addEventListener("click", function () {
-  if (passwordButton.textContent === "Розкрити") {
-    passwordInput.style.color = "inherit";
-    passwordButton.textContent = "Приховати";
-  } else {
-    passwordButton.textContent = "Розкрити";
-    passwordInput.style.color = "transparent";
+// passwordButton.addEventListener("click", function () {
+//   if (passwordButton.textContent === "Розкрити") {
+//     passwordInput.style.color = "inherit";
+//     passwordButton.textContent = "Приховати";
+//   } else {
+//     passwordButton.textContent = "Розкрити";
+//     passwordInput.style.color = "transparent";
+//   }
+// });
+
+//  8. При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+const table = document.querySelector("#productTable");
+const productInfo = document.querySelector("#productDetails");
+
+table.addEventListener("click", showMessage);
+
+function showMessage(event) {
+  if (event.target.nodeName !== "TD") {
+    return;
   }
-})
+
+  const parent = event.target.parentNode;
+  const productName = parent.firstElementChild.textContent.toLowerCase();
+  const price = parent.lastElementChild.textContent;
+
+  // productInfo.textContent = `Ви вибрали ${productName} за ${price}`;
+
+  productInfo.insertAdjacentHTML(
+    "beforeend",
+    `Ви вибрали ${productName} за ${price} </br>`
+  );
+}
