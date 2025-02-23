@@ -129,15 +129,17 @@ const tweets = [
 
 const list = document.querySelector(".stats");
 
-const markup = tweets.map(({id, name, gender, likes, tags}) => `
+const markup = tweets
+  .map(
+    ({ id, name, gender, likes, tags }) => `
     <li class="stats-item ${gender}" >
         <p class="stats-name">${name}</p>
         <p class="stats-likes">likes: ${likes}</p>
         <p class="stats-tags">${tags}</p>
 
         </li>
-`).join("");
+`
+  )
+  .join("");
 
 list.innerHTML = markup;
-
-
