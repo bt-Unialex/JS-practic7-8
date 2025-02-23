@@ -81,63 +81,78 @@
 // в index.html додайте список ul.stats, в який буде рендеритись цей список
 // *властивість gender використай для додавання відповідного класу елементу списка
 
-const tweets = [
-  { id: "000", name: "Alex", gender: "male", likes: 5, tags: ["js", "nodejs"] },
-  {
-    id: "001",
-    name: "Kate",
-    gender: "female",
-    likes: 2,
-    tags: ["html", "css"],
-  },
-  {
-    id: "002",
-    name: "Maria",
-    gender: "female",
-    likes: 17,
-    tags: ["html", "js", "nodejs"],
-  },
-  {
-    id: "003",
-    name: "Borys",
-    gender: "male",
-    likes: 8,
-    tags: ["css", "react"],
-  },
-  {
-    id: "004",
-    name: "Jhon",
-    gender: "male",
-    likes: 10,
-    tags: ["js", "nodejs", "react"],
-  },
-  {
-    id: "005",
-    name: "Anna",
-    gender: "female",
-    likes: 3,
-    tags: ["js", "nodejs", "react"],
-  },
-  {
-    id: "006",
-    name: "Jhon",
-    gender: "male",
-    likes: 0,
-    tags: ["js", "nodejs", "react"],
-  },
-];
+// const tweets = [
+//   { id: "000", name: "Alex", gender: "male", likes: 5, tags: ["js", "nodejs"] },
+//   {
+//     id: "001",
+//     name: "Kate",
+//     gender: "female",
+//     likes: 2,
+//     tags: ["html", "css"],
+//   },
+//   {
+//     id: "002",
+//     name: "Maria",
+//     gender: "female",
+//     likes: 17,
+//     tags: ["html", "js", "nodejs"],
+//   },
+//   {
+//     id: "003",
+//     name: "Borys",
+//     gender: "male",
+//     likes: 8,
+//     tags: ["css", "react"],
+//   },
+//   {
+//     id: "004",
+//     name: "Jhon",
+//     gender: "male",
+//     likes: 10,
+//     tags: ["js", "nodejs", "react"],
+//   },
+//   {
+//     id: "005",
+//     name: "Anna",
+//     gender: "female",
+//     likes: 3,
+//     tags: ["js", "nodejs", "react"],
+//   },
+//   {
+//     id: "006",
+//     name: "Jhon",
+//     gender: "male",
+//     likes: 0,
+//     tags: ["js", "nodejs", "react"],
+//   },
+// ];
 
-const list = document.querySelector(".stats");
+// const list = document.querySelector(".stats");
 
-const markup = tweets.map(({id, name, gender, likes, tags}) => `
-    <li class="stats-item ${gender}" >
-        <p class="stats-name">${name}</p>
-        <p class="stats-likes">likes: ${likes}</p>
-        <p class="stats-tags">${tags}</p>
+// const markup = tweets.map(({id, name, gender, likes, tags}) => `
+//     <li class="stats-item ${gender}" >
+//         <p class="stats-name">${name}</p>
+//         <p class="stats-likes">likes: ${likes}</p>
+//         <p class="stats-tags">${tags}</p>
 
-        </li>
-`).join("");
+//         </li>
+// `).join("");
 
-list.innerHTML = markup;
+// list.innerHTML = markup;
 
+// 4. Кнопка "Приховати" ховає текст і замінює назву кнопки на
+// "Розкрити", при повторному натисканні текст знову стає доступним
+// і кнопка набуває початкового вигляду.
 
+const passwordInput = document.getElementById("passwordInput");
+const passwordButton = document.getElementById("passwordButton");
+
+passwordButton.addEventListener("click", function () {
+  if (passwordButton.textContent === "Розкрити") {
+    passwordInput.style.color = "inherit";
+    passwordButton.textContent = "Приховати";
+  } else {
+    passwordButton.textContent = "Розкрити";
+    passwordInput.style.color = "transparent";
+  }
+})
